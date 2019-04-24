@@ -70,8 +70,6 @@ const displayCreatureDetails = function(creature) {
 //helper function to put event handler on select
 const selectOptionHandler = function() {
   event.preventDefault();
-  console.log('SELECT value??? ', select[0].selectedOptions[0].value);
-  console.log('value??? ', select[0].options[select[0].options.selectedIndex].value);
-  keywordFilter = select[0].selectedOptions[0].value; //select[0].options.selectedOptions[0].value;
+  keywordFilter = select[0].selectedOptions[0].value;
   renderPage();
 };
