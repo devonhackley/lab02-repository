@@ -1,25 +1,25 @@
 h1 {
   margin-top: 25px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Schoolbell', cursive, 'Roboto', sans-serif;
   text-align: center;
   font-size: 44px;
   font-weight: 600px;
 }
 
 h2 {
-  margin-top: 25px;
-  font-family: 'Roboto', sans-serif;
+  margin-top: 45px;
+  font-family: 'Gochi Hand', cursive, 'Roboto', sans-serif;
   font-size: 28px;
   font-weight: 600;
 }
 
 label, select, footer {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-family: 'Patrick Hand', 'Open Sans', sans-serif;
+  font-size: 25px;
 }
 
 li {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Patrick Hand', cursive,'Open Sans', sans-serif;
   font-size: 26px;
 }
 
@@ -30,5 +30,9 @@ img {
 li:nth-child(2), li:nth-child(3) {
   width: 70%;
   text-align: left;
+}
 
+footer {
+  font-family: 'Clicker Script', cursive;
+  font-size: 18px;
 }
