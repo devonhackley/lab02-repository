@@ -1,6 +1,7 @@
 'use strict';
 const creatureArray = [];
 const section = $('#photo-template');
+const select = $('select');
 const Creature = function(url, title, description, keyword, horns){
   this.url = url;
   this.title = title;
@@ -16,11 +17,12 @@ $.get('./data/page-1.json', data => {
   data.forEach(obj => {
     new Creature(obj.image_url, obj.title, obj.description, obj.keyword, obj.horns);
   });
-  displayImage();
+  renderPage();
 });
 
 // display function
-const displayImage = function(){
+const renderPage = function(){
+  const seen = new Set();
   section.empty();
   creatureArray.forEach(creature => {
     section.append(
@@ -33,5 +35,11 @@ const displayImage = function(){
       </div>
       `
     );
+
+    //create options for select - grab keywords
+    if(!seen.has(creature.keyword)) {
+      select.append(`<option>${creature.keyword}</option>`);
+      seen.add(creature.keyword);
+    }
   });
 };
