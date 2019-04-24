@@ -24,9 +24,13 @@ const displayImage = function(){
   section.empty();
   creatureArray.forEach(creature => {
     section.append(
-      `<h2>${creature.title}</h2>
-      <img src=${creature.url} alt=${creature.keyword}
-      <p>${creature.description}</p>
+      `<div>
+      <h2>${creature.title}</h2>
+      <ul>
+      <li><img src=${creature.url} alt=${creature.keyword}</li>
+      <li><p>${creature.description}</p></li>
+      </ul>
+      </div>
       `
     );
   });
