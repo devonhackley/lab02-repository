@@ -1,5 +1,5 @@
 main {
-  max-width: 95%;
+  max-width: 990px;
   margin: 0 auto;
 }
 
@@ -12,9 +12,9 @@ div {
   float: left;
   margin: 20px;
   width: 45%;
-  height: 700px;
+  height: 600px;
   text-align: center;
-  outline: 1px red solid;
+  outline: 1px solid #d0d0d0a3;
   overflow: hidden;
 }
 
@@ -28,6 +28,10 @@ label {
 
 li {
   margin: 10px auto;
+}
+
+footer {
+  text-align: center;
 }
 
 @media only screen and (min-width: 500px) {
