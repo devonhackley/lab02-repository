@@ -18,11 +18,12 @@
 1. Pagination
 2. Templating
 3. Styling with Flexbox
+4. Sorting by Title or Horns
 
 **Estimate of time needed to complete:** 3 hours
 
 **Start time:** 930 am
 
-**Finish time:** 1030 am
+**Finish time:** 1230 am
 
-**Actual time needed to complete:** 1 hour
+**Actual time needed to complete:** 3 hours
