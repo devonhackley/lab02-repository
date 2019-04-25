@@ -3,7 +3,7 @@ let creatureArray = [];
 const section = $('#photo-template');
 const select = $('select');
 let keywordFilter = 'See All';
-const seen = [];
+let seen = [];
 let aLink = $('a');
 
 const Creature = function(url, title, description, keyword, horns){
@@ -17,9 +17,6 @@ const Creature = function(url, title, description, keyword, horns){
 
 // grab data and render
 const renderData = function(filePath) {
-  /*
-  './data/page-1.json'
-  */
   $.get(filePath, data => {
     data.forEach(obj => {
       new Creature(obj.image_url, obj.title, obj.description, obj.keyword, obj.horns);
@@ -28,7 +25,6 @@ const renderData = function(filePath) {
     renderSelectOptions();
   });
 };
-
 // display function
 const renderPage = function(){
   section.empty();
@@ -44,7 +40,6 @@ const renderPage = function(){
     }
   });
   keywordFilter = 'See All';
-  select.on('change', selectOptionHandler);
 };
 
 //function to render select options
@@ -75,11 +70,12 @@ const selectOptionHandler = function() {
 //event listener for links to navigate to diff pages
 const linkHandler = function(event) {
   creatureArray = [];
-  console.log('EVENT! ', event);
+  seen = [];
   event.preventDefault();
-  const filePath = `./data/${event.target.id}.json`;
+  let filePath = `./data/${event.target.id}.json`;
+  select.empty();
   renderData(filePath);
 };
-
 renderData('./data/page-1.json');
 aLink.on('click', linkHandler);
+select.on('change', selectOptionHandler);

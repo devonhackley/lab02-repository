@@ -23,6 +23,6 @@
 
 **Start time:** 930 am
 
-**Finish time:** 1230 pm
+**Finish time:** 1030 am
 
-**Actual time needed to complete:** 
+**Actual time needed to complete:** 1 hour

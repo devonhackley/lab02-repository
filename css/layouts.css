@@ -6,10 +6,17 @@ main {
 section {
   width: 100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a{
+  text-decoration: none;
 }
 
 div {
-  float: left;
   margin: 20px;
   width: 45%;
   height: 600px;
@@ -24,8 +31,12 @@ h2 {
   padding: 20px 0 10px 0;
 }
 
-label {
+label, nav {
   margin: 30px 0 40px 10%;
+}
+a:nth-child(2) {
+  padding-right: 10%;
+  float: right;
 }
 
 li {
