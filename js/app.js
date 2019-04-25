@@ -87,7 +87,6 @@ const linkHandler = function(event) {
 const radioHandler = function(event) {
   event.preventDefault();
   typeSort = event.target.value;
-  console.log(event);
   $(`input[value=${typeSort}]`).prop('checked', true);
   renderPage();
 };
