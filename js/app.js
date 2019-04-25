@@ -3,7 +3,7 @@ let creatureArray = [];
 const section = $('#photo-template');
 const select = $('select');
 let keywordFilter = 'See All';
-const seen = [];
+let seen = [];
 let aLink = $('a');
 
 const Creature = function(url, title, description, keyword, horns){
@@ -17,9 +17,6 @@ const Creature = function(url, title, description, keyword, horns){
 
 // grab data and render
 const renderData = function(filePath) {
-  /*
-  './data/page-1.json'
-  */
   $.get(filePath, data => {
     data.forEach(obj => {
       new Creature(obj.image_url, obj.title, obj.description, obj.keyword, obj.horns);
@@ -28,7 +25,6 @@ const renderData = function(filePath) {
     renderSelectOptions();
   });
 };
-
 // display function
 const renderPage = function(){
   section.empty();
@@ -40,12 +36,10 @@ const renderPage = function(){
         displayCreatureDetails(creature);
       }
     } else {
-      //select.empty();
       displayCreatureDetails(creature);
     }
   });
   keywordFilter = 'See All';
-  select.on('change', selectOptionHandler);
 };
 
 //function to render select options
@@ -59,18 +53,11 @@ const renderSelectOptions = function() {
   });
 };
 
+const creatureRender = Handlebars.compile($('#creature-template').text());
 //helper function to create our elements
 const displayCreatureDetails = function(creature) {
-  section.append(
-    `<div>
-    <h2>${creature.title}</h2>
-    <ul>
-    <li><img src=${creature.url} alt=${creature.keyword}></li>
-    <li><p>${creature.description}</p></li>
-    </ul>
-    </div>
-    `
-  );
+  section.append(creatureRender(creature));
+
 };
 
 //helper function to put event handler on select
@@ -83,12 +70,12 @@ const selectOptionHandler = function() {
 //event listener for links to navigate to diff pages
 const linkHandler = function(event) {
   creatureArray = [];
-  console.log('EVENT! ', event);
+  seen = [];
   event.preventDefault();
-  const filePath = `./data/${event.target.id}.json`;
+  let filePath = `./data/${event.target.id}.json`;
+  select.empty();
   renderData(filePath);
-  //event.id
 };
-
-renderData('./data/page-2.json');
+renderData('./data/page-1.json');
 aLink.on('click', linkHandler);
+select.on('change', selectOptionHandler);
