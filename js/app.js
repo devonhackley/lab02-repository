@@ -5,6 +5,8 @@ const select = $('select');
 let keywordFilter = 'See All';
 let seen = [];
 let aLink = $('a');
+let inputs = $('input');
+let typeSort = '';
 
 const Creature = function(url, title, description, keyword, horns){
   this.url = url;
@@ -28,7 +30,13 @@ const renderData = function(filePath) {
 // display function
 const renderPage = function(){
   section.empty();
-
+  if(typeSort){
+    if(typeSort === 'horns'){
+      creatureArray.sort((a,b) => a.horns - b.horns);
+    } else {
+      creatureArray.sort((a, b) => a.title.localeCompare(b.title));
+    }
+  }
   creatureArray.forEach(creature => {
     //if keywordFilter is set, filter
     if(keywordFilter !== 'See All') {
@@ -76,6 +84,14 @@ const linkHandler = function(event) {
   select.empty();
   renderData(filePath);
 };
+const radioHandler = function(event) {
+  event.preventDefault();
+  typeSort = event.target.value;
+  console.log(event);
+  $(`input[value=${typeSort}]`).prop('checked', true);
+  renderPage();
+};
 renderData('./data/page-1.json');
 aLink.on('click', linkHandler);
 select.on('change', selectOptionHandler);
+inputs.on('change', radioHandler);
