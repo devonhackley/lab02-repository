@@ -40,7 +40,6 @@ const renderPage = function(){
         displayCreatureDetails(creature);
       }
     } else {
-      //select.empty();
       displayCreatureDetails(creature);
     }
   });
@@ -59,18 +58,11 @@ const renderSelectOptions = function() {
   });
 };
 
+const creatureRender = Handlebars.compile($('#creature-template').text());
 //helper function to create our elements
 const displayCreatureDetails = function(creature) {
-  section.append(
-    `<div>
-    <h2>${creature.title}</h2>
-    <ul>
-    <li><img src=${creature.url} alt=${creature.keyword}></li>
-    <li><p>${creature.description}</p></li>
-    </ul>
-    </div>
-    `
-  );
+  section.append(creatureRender(creature));
+
 };
 
 //helper function to put event handler on select
@@ -87,8 +79,7 @@ const linkHandler = function(event) {
   event.preventDefault();
   const filePath = `./data/${event.target.id}.json`;
   renderData(filePath);
-  //event.id
 };
 
-renderData('./data/page-2.json');
+renderData('./data/page-1.json');
 aLink.on('click', linkHandler);

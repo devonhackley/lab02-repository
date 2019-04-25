@@ -8,6 +8,7 @@
     <link rel="stylesheet"  type="text/css" href="./css/base.css">
     <link rel="stylesheet"  type="text/css" href="./css/layouts.css">
     <link rel="stylesheet"  type="text/css" href="./css/modules.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
   </head>
   <body>
     <header>
@@ -18,16 +19,25 @@
       <select></select>
     </header>
     <main>
-      <section id="photo-template">
-        <h2></h2>
-        <img src="" alt="">
-        <p></p>
-      </section>
+        <section id="photo-template">
+        </section>
+       <script type="text/x-handlebars-template" id="creature-template">
+            <div>
+                    <h2>{{title}}</h2>
+                        <ul>
+                            <li><img src={{url}} alt={{keyword}}></li>
+                            <li><p>{{description}}</p></li>
+                        </ul>
+                </div>
+        </script>
+      <!-- <section id="photo-template">
+      </section> -->
     </main>
     <script
   src="https://code.jquery.com/jquery-3.4.0.min.js"
   integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
   crossorigin="anonymous"></script>
+  
     <script src="./js/app.js"></script>
     <footer>
       &copy; 2018 Code Fellows
